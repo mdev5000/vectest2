@@ -3,6 +3,7 @@ module github.com/mdev5000/vectest2
 go 1.16
 
 require (
+	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/golang/protobuf v1.5.2
 	github.com/hexops/vecty v0.6.0
 	github.com/labstack/echo/v4 v4.2.2

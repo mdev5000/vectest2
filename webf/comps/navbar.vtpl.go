@@ -1,19 +1,35 @@
 package comps
 
 import (
+	"fmt"
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
 )
 
 type Navbar struct {
 	vecty.Core
+	active bool
 }
 
 func NewNavBar() *Navbar {
-	return &Navbar{}
+	return &Navbar{
+		active: false,
+	}
+}
+
+func (n *Navbar) toggleActive(e vecty.Event) {
+	fmt.Println("here")
+	n.active = !n.active
+	vecty.Rerender(n)
 }
 
 func (n *Navbar) Render() vecty.ComponentOrHTML {
+	dropdown := Dropdown(List(
+		DropdownItemSimple("#", "Your profile"),
+		DropdownItemSimple("#", "Settings"),
+		DropdownItemSimple("#", "Sign out"),
+	), n.active)
+	fmt.Println(dropdown)
 	return elem.Div(
 		elem.Div(
 			vecty.Markup(
@@ -134,45 +150,6 @@ func (n *Navbar) Render() vecty.ComponentOrHTML {
 												vecty.Attribute("alt", ""),
 											),
 										),
-									),
-								),
-								elem.Div(
-									vecty.Markup(
-										vecty.Class("origin-top-right", "absolute", "right-0", "mt-2", "w-48", "rounded-md", "shadow-lg", "py-1", "bg-white", "ring-1", "ring-black", "ring-opacity-5", "focus:outline-none"),
-										vecty.Attribute("role", "menu"),
-										vecty.Attribute("aria-orientation", "vertical"),
-										vecty.Attribute("aria-labelledby", "user-menu-button"),
-										vecty.Attribute("tabindex", "-1"),
-									),
-									elem.Anchor(
-										vecty.Markup(
-											vecty.Attribute("href", "#"),
-											vecty.Class("block", "px-4", "py-2", "text-sm", "text-gray-700"),
-											vecty.Attribute("role", "menuitem"),
-											vecty.Attribute("tabindex", "-1"),
-											vecty.Attribute("id", "user-menu-item-0"),
-										),
-										vecty.Text("Your Profile"),
-									),
-									elem.Anchor(
-										vecty.Markup(
-											vecty.Attribute("href", "#"),
-											vecty.Class("block", "px-4", "py-2", "text-sm", "text-gray-700"),
-											vecty.Attribute("role", "menuitem"),
-											vecty.Attribute("tabindex", "-1"),
-											vecty.Attribute("id", "user-menu-item-1"),
-										),
-										vecty.Text("Settings"),
-									),
-									elem.Anchor(
-										vecty.Markup(
-											vecty.Attribute("href", "#"),
-											vecty.Class("block", "px-4", "py-2", "text-sm", "text-gray-700"),
-											vecty.Attribute("role", "menuitem"),
-											vecty.Attribute("tabindex", "-1"),
-											vecty.Attribute("id", "user-menu-item-2"),
-										),
-										vecty.Text("Sign out"),
 									),
 								),
 							),

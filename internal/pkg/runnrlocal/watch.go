@@ -145,9 +145,9 @@ func (r *runner) isFrontendFile(path string) bool {
 }
 
 func (r *runner) isVectyTemplate(path string) bool {
-	return strings.HasSuffix(path, ".vhtml")
+	return strings.HasSuffix(path, ".vtpl")
 }
 
 func (r *runner) isGeneratedFile(path string) bool {
-	return strings.HasSuffix(path, ".vhtml.go")
+	return strings.HasSuffix(path, ".vtpl.go")
 }
