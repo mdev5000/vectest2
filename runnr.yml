@@ -1,0 +1,2 @@
+outpath: ./.tmpbins/runnr-local
+executable: ./internal/cmd/runnr_local/main.go

@@ -1,0 +1,12 @@
+# ignored files
+.DS_Store
+*.swp
+
+# ignored folders
+/.idea/
+/public/wasm
+/_tmp/
+/build/
+/.tmpbins/
+/conv.html
+/conv.result.txt

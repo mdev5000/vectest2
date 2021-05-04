@@ -1,0 +1,12 @@
+package comps
+
+import (
+	"github.com/hexops/vecty"
+	"github.com/hexops/vecty/elem"
+)
+
+func (c *Comp1) Render() vecty.ComponentOrHTML {
+    return <div>
+        {s:"first test and some mores"}
+    </div>
+}
