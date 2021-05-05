@@ -1,9 +1,9 @@
 package comps
 
 import (
-	"fmt"
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
+	"github.com/hexops/vecty/event"
 )
 
 type Navbar struct {
@@ -17,8 +17,7 @@ func NewNavBar() *Navbar {
 	}
 }
 
-func (n *Navbar) toggleActive(e vecty.Event) {
-	fmt.Println("here")
+func (n *Navbar) toggleActive(e *vecty.Event) {
 	n.active = !n.active
 	vecty.Rerender(n)
 }
@@ -29,7 +28,6 @@ func (n *Navbar) Render() vecty.ComponentOrHTML {
 		DropdownItemSimple("#", "Settings"),
 		DropdownItemSimple("#", "Sign out"),
 	), n.active)
-	fmt.Println(dropdown)
 	return elem.Div(
 		elem.Div(
 			vecty.Markup(
@@ -136,6 +134,7 @@ func (n *Navbar) Render() vecty.ComponentOrHTML {
 											vecty.Attribute("id", "user-menu-button"),
 											vecty.Attribute("aria-expanded", "false"),
 											vecty.Attribute("aria-haspopup", "true"),
+											event.Click(n.toggleActive),
 										),
 										elem.Span(
 											vecty.Markup(
@@ -152,7 +151,7 @@ func (n *Navbar) Render() vecty.ComponentOrHTML {
 										),
 									),
 								),
-							),
+								dropdown),
 						),
 					),
 					elem.Div(

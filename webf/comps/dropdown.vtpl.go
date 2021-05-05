@@ -20,7 +20,7 @@ func Dropdown(items vecty.List, active bool) vecty.ComponentOrHTML {
 	}
 	return elem.Div(
 		vecty.Markup(
-			vecty.Class("hidden", "origin-top-right", "absolute", "right-0", "mt-2", "w-48", "rounded-md", "shadow-lg", "py-1", "bg-white", "ring-1", "ring-black", "ring-opacity-5", "focus:outline-none"),
+			vecty.Class("origin-top-right", "absolute", "right-0", "mt-2", "w-48", "rounded-md", "shadow-lg", "py-1", "bg-white", "ring-1", "ring-black", "ring-opacity-5", "focus:outline-none"),
 			vecty.Attribute("role", "menu"),
 			vecty.Attribute("aria-orientation", "vertical"),
 			vecty.Attribute("aria-labelledby", "user-menu-button"),
