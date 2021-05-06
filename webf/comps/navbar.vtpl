@@ -3,7 +3,8 @@ package comps
 import (
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
-    "github.com/hexops/vecty/event"
+  "github.com/hexops/vecty/event"
+  "github.com/mdev5000/vectest2/webf/comps/navbar"
 )
 
 type Navbar struct {
@@ -28,6 +29,7 @@ func (n *Navbar) Render() vecty.ComponentOrHTML {
         DropdownItemSimple("#", "Settings"),
         DropdownItemSimple("#", "Sign out"),
     ), n.active)
+
     return <div>
        <div class="bg-gray-800">
          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,7 +41,7 @@ func (n *Navbar) Render() vecty.ComponentOrHTML {
                <div class="hidden md:block">
                  <div class="ml-10 flex items-baseline space-x-4">
                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                   <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">{s:"Dashboard"}</a>
+                   {navbar.Link("#", "Dashboard")}
 
                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{s:"Team"}</a>
 

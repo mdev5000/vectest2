@@ -4,6 +4,7 @@ import (
 	"github.com/hexops/vecty"
 	"github.com/hexops/vecty/elem"
 	"github.com/hexops/vecty/event"
+	"github.com/mdev5000/vectest2/webf/comps/navbar"
 )
 
 type Navbar struct {
@@ -28,6 +29,7 @@ func (n *Navbar) Render() vecty.ComponentOrHTML {
 		DropdownItemSimple("#", "Settings"),
 		DropdownItemSimple("#", "Sign out"),
 	), n.active)
+
 	return elem.Div(
 		elem.Div(
 			vecty.Markup(
@@ -65,13 +67,7 @@ func (n *Navbar) Render() vecty.ComponentOrHTML {
 								vecty.Markup(
 									vecty.Class("ml-10", "flex", "items-baseline", "space-x-4"),
 								),
-								elem.Anchor(
-									vecty.Markup(
-										vecty.Attribute("href", "#"),
-										vecty.Class("bg-gray-900", "text-white", "px-3", "py-2", "rounded-md", "text-sm", "font-medium"),
-									),
-									vecty.Text("Dashboard"),
-								),
+								navbar.Link("#", "Dashboard"),
 								elem.Anchor(
 									vecty.Markup(
 										vecty.Attribute("href", "#"),
