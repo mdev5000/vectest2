@@ -147,7 +147,8 @@ func (n *Navbar) Render() vecty.ComponentOrHTML {
 										),
 									),
 								),
-								dropdown),
+								dropdown,
+							),
 						),
 					),
 					elem.Div(

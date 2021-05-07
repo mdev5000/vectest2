@@ -26,13 +26,14 @@ func Dropdown(items vecty.List, active bool) vecty.ComponentOrHTML {
 			vecty.Attribute("aria-labelledby", "user-menu-button"),
 			vecty.Attribute("tabindex", "-1"),
 		),
-		items)
+		items,
+	)
 }
 
 // Active: "bg-gray-100", Not Active: ""
-// tvecty.Html(2, `<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">{s:"Your Profile"}</a>`)
-// tvecty.Html(3, `<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">{s:"Settings"}</a>`)
-// tvecty.Html(4, `<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">{s:"Sign out"}</a>`)
+// <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">{s:"Your Profile"}</a>
+// <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">{s:"Settings"}</a>
+// <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">{s:"Sign out"}</a>
 func DropdownItemSimple(link, text string) vecty.ComponentOrHTML {
 	return elem.Anchor(
 		vecty.Markup(
