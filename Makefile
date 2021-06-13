@@ -6,6 +6,13 @@ clean: FORCE
 
 build: gen.frontend build.frontend FORCE
 
+# Install dependencies
+deps:
+	go install github.com/mdev5000/runnr/cmd/runnr@latest
+	go install github.com/mdev5000/tvecty/cmd/tvecty@latest
+
+deps.proto:
+	go get -u github.com/gogo/protobuf/protoc-gen-gofast
 
 gen.frontend: FORCE
 	go generate ./webf
@@ -25,11 +32,6 @@ proto: FORCE
 		--gofast_out=plugins=grpc:. \
 		--proto_path=$(go list -f '{{ .Dir }}' -m github.com/gogo/protobuf) \
 		--proto_path=.
-
-setup: FORCE
-	go get -u github.com/gogo/protobuf/protoc-gen-gofast
-	# go get -u github.com/mdev5000/vectyhtmlgen/cmd/vectyhtmlgen
-	go install github.com/mdev5000/tvecty/cmd/tvecty@latest
 
 update.tvecty: FORCE
 	go install github.com/mdev5000/tvecty/cmd/tvecty@latest
